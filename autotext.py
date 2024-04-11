@@ -2,11 +2,13 @@ import requests
 import schedule
 import time
 
+textbelt=TEXTBELT
+
 def send_message():
   resp = requests.post('http://textbelt.com/text', {
     'phone': '12069494331',
     'message': 'Good Morning',
-    'key': 'TEXTBELT'
+    'key': textbelt
   })
 
   print(resp.json())
