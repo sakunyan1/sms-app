@@ -5,4 +5,4 @@ jobs:
       - name: Use secret
         env:
           MY_ENV_VAR: ${{ secrets.TEXTBELT }}
-        run: python main.py
+        run: python autotext.py
