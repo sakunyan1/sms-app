@@ -1,8 +1,10 @@
 import requests
 import schedule
 import time
+import os
 
-textbelt=TEXTBELT
+
+textbelt=os.environ['TEXTBELT']
 
 def send_message():
   resp = requests.post('http://textbelt.com/text', {
@@ -13,7 +15,7 @@ def send_message():
 
   print(resp.json())
 
-  schedule.every().day.at('04:10').do(send_message)
+  schedule.every().day.at('05:00').do(send_message)
 
   #schedule.every(10).seconds.do(send_message)
 
