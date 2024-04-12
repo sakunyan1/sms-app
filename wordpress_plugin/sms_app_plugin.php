@@ -6,6 +6,7 @@
  * Author: tbd
  */
 
+
 // Add a new menu item under Settings
 function my_custom_plugin_menu() {
     add_options_page(
@@ -26,16 +27,19 @@ function my_custom_plugin_options() {
 
     // Save the message if the form was submitted
     if (isset($_POST['message'])) {
-        update_option('my_custom_plugin_message', $_POST['message']);
+        file_put_contents(plugin_dir_path(__FILE__) . 'message.txt', sanitize_text_field($_POST['message']));
         echo '<div class="updated"><p>Message updated!</p></div>';
     }
 
     // Get the current message
-    $message = get_option('my_custom_plugin_message', 'Hello world');
+    $message = '';
+    if (file_exists(plugin_dir_path(__FILE__) . 'message.txt')) {
+        $message = file_get_contents(plugin_dir_path(__FILE__) . 'message.txt');
+    }
 
     // Display the form
     echo '<div class="wrap">';
-    echo '<h2>SMS App Plugin</h2>';
+    echo '<h2>My Custom Plugin</h2>';
     echo '<form method="post" action="">';
     echo '<label for="message">Message:</label><br>';
     echo '<input type="text" id="message" name="message" value="' . esc_attr($message) . '"><br>';
