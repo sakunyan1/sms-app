@@ -1,6 +1,15 @@
-<form action="http://yourwebsite.com/path-to-your-script" method="post">
-    <label for="phone">Phone Number:</label><br>
-    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br>
-    <small>Format: 123-456-7890</small><br>
-    <input type="submit" value="Update">
+<form method="post" action="options.php">
+    <?php settings_fields('my-plugin-settings-group'); ?>
+    <?php do_settings_sections('my-plugin-settings-group'); ?>
+    <table class="form-table">
+        <tr valign="top">
+        <th scope="row">Phone Number</th>
+        <td><input type="text" name="phone_number" value="<?php echo esc_attr(get_option('phone_number')); ?>" /></td>
+        </tr>
+        <tr valign="top">
+        <th scope="row">Message</th>
+        <td><input type="text" name="message" value="<?php echo esc_attr(get_option('message')); ?>" /></td>
+        </tr>
+    </table>
+    <?php submit_button(); ?>
 </form>
