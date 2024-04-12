@@ -1,9 +1,11 @@
 # sms-app
 
 ```
-/my-sms-plugin
-  /sms-app
-    main.py
+/sms-app-plugin
+  /templates
+    edit-sms.php
+  functions.php
+  main.py
     requirements.txt
   /wordpress-plugin
     my-sms-plugin.php
