@@ -39,7 +39,7 @@ function my_custom_plugin_options() {
 
     // Display the form
     echo '<div class="wrap">';
-    echo '<h2>My Custom Plugin</h2>';
+    echo '<h2>SMS App Plugin</h2>';
     echo '<form method="post" action="">';
     echo '<label for="message">Message:</label><br>';
     echo '<input type="text" id="message" name="message" value="' . esc_attr($message) . '"><br>';
